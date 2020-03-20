@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>老学学的微博</title>
+  <title>px</title>
   
-  
+  <subtitle>老学学的博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>老学学</name>
     
   </author>
   
