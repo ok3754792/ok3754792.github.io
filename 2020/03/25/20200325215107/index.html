@@ -28,9 +28,9 @@
 <meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326085511338.png">
 <meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326085904905.png">
 <meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326083113281.png">
-<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326083838749.png">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326090533044.png">
 <meta property="article:published_time" content="2020-03-25T13:51:07.000Z">
-<meta property="article:modified_time" content="2020-03-26T01:00:08.797Z">
+<meta property="article:modified_time" content="2020-03-26T01:08:33.975Z">
 <meta property="article:author" content="px">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="博客">
@@ -376,7 +376,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/25/20200325215107/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 476(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 499(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -399,7 +399,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry &quot;https:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;&quot;</span><br><span class="line">npm config set electron_mirror &quot;https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;electron&#x2F;&quot;</span><br><span class="line">npm i -g hexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 <h3 id="1-4-搭建gitHub项目"><a href="#1-4-搭建gitHub项目" class="headerlink" title="1.4 搭建gitHub项目"></a>1.4 搭建gitHub项目</h3><p>创建一个repo，名称为<code>yourname.github.io</code>, 其中yourname是你的github名称，生成项目的最终地址是<code>https://github.com/yourname/yourname.github.io.git</code>,hexo的外网访问环境是<code>https://yourname.github.io/</code></p>
 <h3 id="1-5-将hexo上传到gitHub"><a href="#1-5-将hexo上传到gitHub" class="headerlink" title="1.5 将hexo上传到gitHub"></a>1.5 将hexo上传到gitHub</h3><p><code>npm install hexo-deployer-git --save</code><br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code><br>如果报错<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326085511338.png" alt=""><br>那么说明头部格式错误<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326085904905.png" alt=""></p>
-<h3 id="1-6-绑定个人域名"><a href="#1-6-绑定个人域名" class="headerlink" title="1.6 绑定个人域名"></a>1.6 绑定个人域名</h3><p>访问腾讯域名管理网站（域名自行购买）<code>https://console.cloud.tencent.com/domain</code><br>点 操作-&gt;解析-&gt;添加记录<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326083113281.png" alt=""><br><strong>其中最重要的是ip解析，打开cmd，输入</strong> <code>ping yourname.github.io</code><strong>，把返回的ip地址填入，然后保存。项目操作变化需要修改映射的ip地址，如下就是github项目被修改了</strong><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326083838749.png" alt=""></p>
+<h3 id="1-6-绑定个人域名"><a href="#1-6-绑定个人域名" class="headerlink" title="1.6 绑定个人域名"></a>1.6 绑定个人域名</h3><p>访问腾讯域名管理网站（域名自行购买）<code>https://console.cloud.tencent.com/domain</code><br>点 操作-&gt;解析-&gt;添加记录<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326083113281.png" alt=""><br><strong>其中最重要的是ip解析，打开cmd，输入</strong> <code>ping yourname.github.io</code><strong>，把返回的ip地址填入，然后保存。<br>如果出现：<img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326090533044.png" alt=""><br>项目操作变化需要修改映射的ip地址，可能是github项目被修改了，或者github出现缓存了，刷新页面或者重新部署等等</strong></p>
 
       
     </div>
