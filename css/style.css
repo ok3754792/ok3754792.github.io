@@ -260,7 +260,7 @@ th {
 }
 
 html {
-  font-size: 10px;
+  font-size: 15px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -276,6 +276,8 @@ textarea {
 a {
   color: #2196f3;
   text-decoration: none;
+  font-size: 14px;
+
 }
 
 a:hover,
@@ -484,7 +486,9 @@ h6,
 }
 
 p {
-  margin: 0 0 10.5px;
+  margin: 0 0 15px;
+  font-size: 16px;
+
 }
 
 .lead {
@@ -4057,6 +4061,8 @@ svg {
 .text-indent p,
 .text-indent div {
   text-indent: 2em;
+    font-size: 14px;
+
 }
 
 /*text wrap*/
@@ -5953,6 +5959,8 @@ body.no-sidebar .sidebar {
 .panel .label,
 .widget .label {
   font-weight: normal;
+    font-size: 14px;
+
 }
 
 .widget:before,
@@ -5972,18 +5980,22 @@ body.no-sidebar .sidebar {
 
 .widget time {
   color: #999;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 
 .widget p {
   margin-bottom: 0;
+    font-size: 14px;
+
 }
 
 .widget ul {
   margin-left: 0;
   padding-left: 0;
   list-style: none;
+    font-size: 14px;
+
 }
 
 .widget .category-link {

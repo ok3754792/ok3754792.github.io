@@ -161,7 +161,7 @@ td, th {
 }
 
 html {
-    font-size: 10px;
+    font-size: 15px;
     -webkit-tap-highlight-color: transparent
 }
 
@@ -294,7 +294,7 @@ hr {
 }
 
 p {
-    margin: 0 0 10.5px
+    margin: 0 0 15px
 }
 
 .lead {
