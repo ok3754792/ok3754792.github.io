@@ -114,13 +114,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_layout/tag.css</loc>
-    
-    <lastmod>2020-03-20T02:14:10.365Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/css/min_screen_layout/sidebar.css</loc>
     
     <lastmod>2020-03-20T02:14:10.365Z</lastmod>
@@ -128,9 +121,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_layout/footer.css</loc>
+    <loc>http://yoursite.com/css/min_screen_layout/tag.css</loc>
     
-    <lastmod>2020-03-20T02:14:10.364Z</lastmod>
+    <lastmod>2020-03-20T02:14:10.365Z</lastmod>
     
   </url>
   
@@ -142,7 +135,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_layout/pagination.css</loc>
+    <loc>http://yoursite.com/css/min_screen_layout/footer.css</loc>
     
     <lastmod>2020-03-20T02:14:10.364Z</lastmod>
     
@@ -156,9 +149,23 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/css/min_screen_layout/pagination.css</loc>
+    
+    <lastmod>2020-03-20T02:14:10.364Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/css/min_screen_layout/post.css</loc>
     
     <lastmod>2020-03-20T02:14:10.364Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/css/min_screen_highlight/highlight.css</loc>
+    
+    <lastmod>2020-03-20T02:14:10.363Z</lastmod>
     
   </url>
   
@@ -170,9 +177,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_highlight/highlight.css</loc>
+    <loc>http://yoursite.com/css/highlight/theme.css</loc>
     
-    <lastmod>2020-03-20T02:14:10.363Z</lastmod>
+    <lastmod>2020-03-20T02:14:10.362Z</lastmod>
     
   </url>
   
@@ -185,13 +192,6 @@
   
   <url>
     <loc>http://yoursite.com/css/highlight/highlight.css</loc>
-    
-    <lastmod>2020-03-20T02:14:10.362Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/css/highlight/theme.css</loc>
     
     <lastmod>2020-03-20T02:14:10.362Z</lastmod>
     
