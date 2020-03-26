@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>blog</title>
+  <title>px-blog</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-19T12:36:34.074Z</updated>
+  <updated>2020-03-26T00:54:36.350Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,19 +17,72 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2020/03/19/hello-world/"/>
-    <id>http://yoursite.com/2020/03/19/hello-world/</id>
-    <published>2020-03-19T12:36:34.074Z</published>
-    <updated>2020-03-19T12:36:34.074Z</updated>
+    <title>Hexo安装记录</title>
+    <link href="http://yoursite.com/2020/03/25/20200325215107/"/>
+    <id>http://yoursite.com/2020/03/25/20200325215107/</id>
+    <published>2020-03-25T13:51:07.000Z</published>
+    <updated>2020-03-26T00:54:36.350Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1. 安装hexo"></a>1. 安装hexo</h2><p>详细安装过程可参考<a href="https://blog.csdn.net/SR02020/article/details/104876531/" target="_blank" rel="noopener">安装教程</a></p><h3 id="1-1-安装-git"><a href="#1-1-安装-git" class="headerlink" title="1.1 安装 git"></a>1.1 <strong>安装 git</strong></h3><p>windows下载地址：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a><br>双击下载好的exe文件，一路next就好啦<br>git version 查看版本</p><h3 id="1-2-安装-nodejs"><a href="#1-2-安装-nodejs" class="headerlink" title="1.2 安装 nodejs"></a>1.2 安装 nodejs</h3><p>下载地址：<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">下载地址</a><br>双击打开安装，也是一路next，不过在Custom Setup这一步记得选 <code>Add to PATH</code> ,这样你就不用自己去配置电脑上环境变量了，装完在按 <code>win + r</code> 快捷键调出运行，然后输入cmd确定，在cmd中输入path可以看到你的node是否配置在里面（环境变量）</p><p><a href="https://www.cnblogs.com/liuqiyun/p/8133904.html" target="_blank" rel="noopener">自定义插件安装位置可参考</a></p><ol><li>在<code>D:\work\nodejs</code>里新建2个文件夹<code>node_global</code>及<code>node_cache</code>,接下来打开命令行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;D:\work\nodejs\npm_global&quot;</span><br><span class="line">npm config set cache &quot;D:\work\nodejs\npm_cache&quot;</span><br></pre></td></tr></table></figure></li><li>打开系统变量，新建<br><code>NODE_PATH</code><br><code>D:\work\nodejs\npm_global\node_modules</code></li><li>编辑用户变量中的path，<code>C: \Users\px\App Data\Roaming\npm</code>替换成<code>D:\work\nodejs\npm_global</code></li></ol><h3 id="1-3-配置npm"><a href="#1-3-配置npm" class="headerlink" title="1.3 配置npm"></a>1.3 配置npm</h3><p>在想要安装的目标文件夹下打开GitBash</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry &quot;https:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;&quot;</span><br><span class="line">npm config set electron_mirror &quot;https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;electron&#x2F;&quot;</span><br><span class="line">npm i -g hexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure><h3 id="1-4-搭建gitHub项目"><a href="#1-4-搭建gitHub项目" class="headerlink" title="1.4 搭建gitHub项目"></a>1.4 搭建gitHub项目</h3><p>创建一个repo，名称为<code>yourname.github.io</code>, 其中yourname是你的github名称，生成项目的最终地址是<code>https://github.com/yourname/yourname.github.io.git</code>,hexo的外网访问环境是<code>https://yourname.github.io/</code></p><h3 id="1-5-将hexo上传到gitHub"><a href="#1-5-将hexo上传到gitHub" class="headerlink" title="1.5 将hexo上传到gitHub"></a>1.5 将hexo上传到gitHub</h3><p><code>npm install hexo-deployer-git --save</code></p><h3 id="1-6-绑定个人域名"><a href="#1-6-绑定个人域名" class="headerlink" title="1.6 绑定个人域名"></a>1.6 绑定个人域名</h3><p>访问腾讯域名管理网站（域名自行购买）<code>https://console.cloud.tencent.com/domain</code><br>点 操作-&gt;解析-&gt;添加记录<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326083113281.png" alt=""><br><strong>其中最重要的是ip解析，打开cmd，输入</strong> <code>ping yourname.github.io</code><strong>，把返回的ip地址填入，然后保存。项目操作变化需要修改映射的ip地址，如下就是github项目被修改了</strong><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326083838749.png" alt=""></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;h2 id=&quot;1-安装hexo&quot;&gt;&lt;a href=&quot;#1-安装hexo&quot; class=&quot;headerlink&quot; title=&quot;1. 安装hexo&quot;&gt;&lt;/a&gt;1. 安装hexo&lt;/h2&gt;&lt;p&gt;详细安装过程可参考&lt;a href=&quot;https://blog.csdn.net/SR02
+      
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://yoursite.com/2020/03/22/test/"/>
+    <id>http://yoursite.com/2020/03/22/test/</id>
+    <published>2020-03-22T07:04:43.227Z</published>
+    <updated>2020-03-22T14:14:32.806Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="大撒的撒撒"><a href="#大撒的撒撒" class="headerlink" title="大撒的撒撒"></a>大撒的撒撒</h1><h2 id="的方式地方放大撒"><a href="#的方式地方放大撒" class="headerlink" title="的方式地方放大撒)"></a>的方式地方放大撒<img src="/20200322214318539/20200322094517329.png" alt="">)<img src="/20200322214318539/20200322101431702.png" alt=""></h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;大撒的撒撒&quot;&gt;&lt;a href=&quot;#大撒的撒撒&quot; class=&quot;headerlink&quot; title=&quot;大撒的撒撒&quot;&gt;&lt;/a&gt;大撒的撒撒&lt;/h1&gt;&lt;h2 id=&quot;的方式地方放大撒&quot;&gt;&lt;a href=&quot;#的方式地方放大撒&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hello-world</title>
+    <link href="http://yoursite.com/2020/03/19/hello-world/"/>
+    <id>http://yoursite.com/2020/03/19/hello-world/</id>
+    <published>2020-03-19T12:36:34.074Z</published>
+    <updated>2020-03-25T12:55:21.678Z</updated>
+    
+    <content type="html"><![CDATA[<p>对方什么快乐；<br>            Ti哦噩梦`</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;对方什么快乐；&lt;br&gt;            Ti哦噩梦`&lt;/p&gt;
+
       
     
     </summary>
