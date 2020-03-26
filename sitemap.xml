@@ -4,7 +4,7 @@
   <url>
     <loc>http://yoursite.com/2020/03/25/20200325215107/</loc>
     
-    <lastmod>2020-03-26T00:54:36.350Z</lastmod>
+    <lastmod>2020-03-26T01:00:08.797Z</lastmod>
     
   </url>
   
@@ -107,13 +107,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_layout/recent_posts.css</loc>
-    
-    <lastmod>2020-03-20T02:14:10.365Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/css/min_screen_layout/sidebar.css</loc>
     
     <lastmod>2020-03-20T02:14:10.365Z</lastmod>
@@ -121,14 +114,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_layout/footer.css</loc>
+    <loc>http://yoursite.com/css/min_screen_layout/recent_posts.css</loc>
+    
+    <lastmod>2020-03-20T02:14:10.365Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/css/min_screen_layout/header.css</loc>
     
     <lastmod>2020-03-20T02:14:10.364Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_layout/header.css</loc>
+    <loc>http://yoursite.com/css/min_screen_layout/footer.css</loc>
     
     <lastmod>2020-03-20T02:14:10.364Z</lastmod>
     
@@ -156,14 +156,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_highlight/highlight.css</loc>
+    <loc>http://yoursite.com/css/min_screen_highlight/theme.css</loc>
     
     <lastmod>2020-03-20T02:14:10.363Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_highlight/theme.css</loc>
+    <loc>http://yoursite.com/css/min_screen_highlight/highlight.css</loc>
     
     <lastmod>2020-03-20T02:14:10.363Z</lastmod>
     
