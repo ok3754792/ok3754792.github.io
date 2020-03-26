@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_search/index.css</loc>
+    <loc>http://yoursite.com/css/min_screen_search/algolia.css</loc>
     
     <lastmod>2020-03-20T02:14:10.366Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_search/algolia.css</loc>
+    <loc>http://yoursite.com/css/min_screen_search/index.css</loc>
     
     <lastmod>2020-03-20T02:14:10.366Z</lastmod>
     
@@ -135,14 +135,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_layout/footer.css</loc>
+    <loc>http://yoursite.com/css/min_screen_layout/page.css</loc>
     
     <lastmod>2020-03-20T02:14:10.364Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_layout/page.css</loc>
+    <loc>http://yoursite.com/css/min_screen_layout/footer.css</loc>
     
     <lastmod>2020-03-20T02:14:10.364Z</lastmod>
     
@@ -163,13 +163,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/min_screen_highlight/highlight.css</loc>
-    
-    <lastmod>2020-03-20T02:14:10.363Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/css/min_screen_highlight/theme.css</loc>
     
     <lastmod>2020-03-20T02:14:10.363Z</lastmod>
@@ -177,9 +170,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/highlight/theme.css</loc>
+    <loc>http://yoursite.com/css/min_screen_highlight/highlight.css</loc>
     
-    <lastmod>2020-03-20T02:14:10.362Z</lastmod>
+    <lastmod>2020-03-20T02:14:10.363Z</lastmod>
     
   </url>
   
@@ -198,14 +191,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/const.css</loc>
+    <loc>http://yoursite.com/css/highlight/theme.css</loc>
+    
+    <lastmod>2020-03-20T02:14:10.362Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/css/fan.css</loc>
     
     <lastmod>2020-03-20T02:14:10.361Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/css/fan.css</loc>
+    <loc>http://yoursite.com/css/const.css</loc>
     
     <lastmod>2020-03-20T02:14:10.361Z</lastmod>
     
