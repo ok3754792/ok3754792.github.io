@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pangxue.vip/"/>
-  <updated>2020-03-26T14:27:13.945Z</updated>
+  <updated>2020-03-26T14:37:14.795Z</updated>
   <id>http://pangxue.vip/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Hexo进阶（二）</title>
-    <link href="http://pangxue.vip/2020/03/26/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://pangxue.vip/2020/03/26/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
+    <link href="http://pangxue.vip/2020/03/26/20200325215108/"/>
+    <id>http://pangxue.vip/2020/03/26/20200325215108/</id>
     <published>2020-03-26T01:13:31.000Z</published>
-    <updated>2020-03-26T14:27:13.945Z</updated>
+    <updated>2020-03-26T14:37:14.795Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-hexo各文件介绍"><a href="#1-hexo各文件介绍" class="headerlink" title="1.hexo各文件介绍"></a>1.hexo各文件介绍</h2><p><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326091621275.png" alt=""></p><h2 id="2-hexo主题推荐"><a href="#2-hexo主题推荐" class="headerlink" title="2.hexo主题推荐"></a>2.hexo主题推荐</h2><pre><code>个人使用pure，推荐next，fan，human等，主题挑选网站：[主题](https://hexo.io/themes/)</code></pre><p><a href="https://github.com/cofess/hexo-theme-pure" target="_blank" rel="noopener"><strong>pure下载以及安装</strong></a></p><h2 id="3-hexo主题配置"><a href="#3-hexo主题配置" class="headerlink" title="3.hexo主题配置"></a>3.hexo主题配置</h2><pre><code>复制`theme/pure/_source/`文件夹到`blog path/source/` 目录下以便安装全部功能</code></pre><p>hexo全局配置在根目录<code>_config.yml</code>里<br><code>theme: pure</code>,输入对应的主题名保存即可更换主题，每个主题的配置文件在根目录文件夹themes下，继续修改相关信息</p><h2 id="4-配置评论功能"><a href="#4-配置评论功能" class="headerlink" title="4.配置评论功能"></a>4.配置评论功能</h2><pre><code>目前免服务器的有gitment（停止维护），gittalk（推荐）</code></pre><h4 id="1-点我设置github授权地址"><a href="#1-点我设置github授权地址" class="headerlink" title="1. 点我设置github授权地址"></a>1. <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">点我设置github授权地址</a></h4><p>操作演示：<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326062224994.png" alt=""><br>注册成功后记住 ClientID 和 ClientSecret，下一步用</p><h4 id="2-修改主题配置"><a href="#2-修改主题配置" class="headerlink" title="2. 修改主题配置"></a>2. 修改主题配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">comment:</span><br><span class="line">  type: gitalk  # 启用哪种评论系统</span><br><span class="line">  gitalk: # gitalk. https:&#x2F;&#x2F;gitalk.github.io&#x2F;</span><br><span class="line">    owner: #必须. GitHub repository 所有者，可以是个人或者组织。</span><br><span class="line">    admin: #必须. GitHub repository 的所有者和合作者 (对这个 repository 有写权限的用户)。</span><br><span class="line">    repo:  comment #必须. GitHub repository.</span><br><span class="line">    ClientID:  #必须. GitHub Application Client ID.</span><br><span class="line">    ClientSecret:  #必须. GitHub Application Client Secret.</span><br></pre></td></tr></table></figure><h4 id="3-登陆github账户记录评论"><a href="#3-登陆github账户记录评论" class="headerlink" title="3. 登陆github账户记录评论"></a>3. 登陆github账户记录评论</h4><p><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326063139811.png" alt=""><br>如果报错请自行百度，目前遇到 network error情况，为当前wifi问题</p><h4 id="4-更换正文字体大小"><a href="#4-更换正文字体大小" class="headerlink" title="4. 更换正文字体大小"></a>4. 更换正文字体大小</h4><pre><code>通过 F12 发现正文文字是用`&lt;p&gt;` ，然后找了下文件夹，最后定位到`pure\source\css`文件夹下`style.css`中，往下拉定位到`&lt;p&gt;`标签</code></pre><p><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326083126033.png" alt="">加这么一行保存重启hexo</p><h4 id="5-搜索出现bug"><a href="#5-搜索出现bug" class="headerlink" title="5. 搜索出现bug"></a>5. 搜索出现bug</h4><pre><code>搜索文章正常说明搜索功能是好使的，但是搜索标签等就出现问题了，发现跳到`https://yoursite.com/categories/%E6%95%99%E7%A8%8B/`,说明配置里一定有这个网站，于是全局搜索`yoursite`发现根目录配置url，修改成自己博客地址即可</code></pre>]]></content>
     
@@ -30,34 +30,6 @@
       
       
         &lt;h2 id=&quot;1-hexo各文件介绍&quot;&gt;&lt;a href=&quot;#1-hexo各文件介绍&quot; class=&quot;headerlink&quot; title=&quot;1.hexo各文件介绍&quot;&gt;&lt;/a&gt;1.hexo各文件介绍&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://hexo-1258128768.c
-      
-    
-    </summary>
-    
-    
-      <category term="教程" scheme="http://pangxue.vip/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="主题" scheme="http://pangxue.vip/tags/%E4%B8%BB%E9%A2%98/"/>
-    
-      <category term="配置" scheme="http://pangxue.vip/tags/%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo进阶（二）</title>
-    <link href="http://pangxue.vip/2020/03/26/20200325215108/"/>
-    <id>http://pangxue.vip/2020/03/26/20200325215108/</id>
-    <published>2020-03-26T01:13:31.000Z</published>
-    <updated>2020-03-26T10:32:45.158Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-hexo各文件介绍"><a href="#1-hexo各文件介绍" class="headerlink" title="1.hexo各文件介绍"></a>1.hexo各文件介绍</h2><p><img src="/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326091621275.png" alt=""></p><h2 id="2-hexo主题推荐"><a href="#2-hexo主题推荐" class="headerlink" title="2.hexo主题推荐"></a>2.hexo主题推荐</h2><p>个人使用pure，推荐next，fan，human等，主题挑选网站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a><br><a href="https://github.com/cofess/hexo-theme-pure" target="_blank" rel="noopener"><strong>pure下载以及安装</strong></a></p><h2 id="3-hexo主题配置"><a href="#3-hexo主题配置" class="headerlink" title="3.hexo主题配置"></a>3.hexo主题配置</h2><p>复制<code>theme/pure/_source/</code>文件夹到<code>blog path/source/</code> 目录下以便安装全部功能<br>hexo全局配置在根目录<code>_config.yml</code>里<br><code>theme: pure</code>,输入对应的主题名保存即可更换主题，每个主题的配置文件在根目录文件夹themes下，继续修改相关信息</p><h2 id="4-配置评论功能"><a href="#4-配置评论功能" class="headerlink" title="4.配置评论功能"></a>4.配置评论功能</h2><p>目前免服务器的有gitment（停止维护），gittalk（推荐）</p><h4 id="1-点我设置github授权地址"><a href="#1-点我设置github授权地址" class="headerlink" title="1. 点我设置github授权地址"></a>1. <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">点我设置github授权地址</a></h4><p>操作演示：<br><img src="/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326062224994.png" alt=""><br>注册成功后记住 ClientID 和 ClientSecret，下一步用</p><h4 id="2-修改主题配置"><a href="#2-修改主题配置" class="headerlink" title="2. 修改主题配置"></a>2. 修改主题配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">comment:</span><br><span class="line">  type: gitalk  # 启用哪种评论系统</span><br><span class="line">  gitalk: # gitalk. https:&#x2F;&#x2F;gitalk.github.io&#x2F;</span><br><span class="line">    owner: #必须. GitHub repository 所有者，可以是个人或者组织。</span><br><span class="line">    admin: #必须. GitHub repository 的所有者和合作者 (对这个 repository 有写权限的用户)。</span><br><span class="line">    repo:  comment #必须. GitHub repository.</span><br><span class="line">    ClientID:  #必须. GitHub Application Client ID.</span><br><span class="line">    ClientSecret:  #必须. GitHub Application Client Secret.</span><br></pre></td></tr></table></figure><h4 id="3-登陆github账户记录评论"><a href="#3-登陆github账户记录评论" class="headerlink" title="3. 登陆github账户记录评论"></a>3. 登陆github账户记录评论</h4><p><img src="/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326063139811.png" alt=""><br>如果报错请自行百度，目前遇到 network error情况，为当前wifi问题</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-hexo各文件介绍&quot;&gt;&lt;a href=&quot;#1-hexo各文件介绍&quot; class=&quot;headerlink&quot; title=&quot;1.hexo各文件介绍&quot;&gt;&lt;/a&gt;1.hexo各文件介绍&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/Hexo%E8%BF%9B%E9%98%B6%
       
     
     </summary>
