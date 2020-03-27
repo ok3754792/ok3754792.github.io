@@ -38,11 +38,11 @@
       <category term="教程" scheme="http://pangxue.vip/categories/%E6%95%99%E7%A8%8B/"/>
     
     
+      <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
+    
       <category term="HexoEditor" scheme="http://pangxue.vip/tags/HexoEditor/"/>
     
       <category term="ide" scheme="http://pangxue.vip/tags/ide/"/>
-    
-      <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
     
   </entry>
   
@@ -51,7 +51,7 @@
     <link href="http://pangxue.vip/2020/03/26/HexoAdvanced/"/>
     <id>http://pangxue.vip/2020/03/26/HexoAdvanced/</id>
     <published>2020-03-26T01:13:31.000Z</published>
-    <updated>2020-03-27T00:57:31.456Z</updated>
+    <updated>2020-03-27T02:40:01.385Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-hexo各文件介绍"><a href="#1-hexo各文件介绍" class="headerlink" title="1.hexo各文件介绍"></a>1.hexo各文件介绍</h2><p><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326091621275.png" alt=""></p><h2 id="2-hexo主题推荐"><a href="#2-hexo主题推荐" class="headerlink" title="2.hexo主题推荐"></a>2.hexo主题推荐</h2><p>　　个人使用pure，推荐next，fan，human等，主题挑选网站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a><br><a href="https://github.com/cofess/hexo-theme-pure" target="_blank" rel="noopener"><strong>pure下载以及安装</strong></a></p><h2 id="3-hexo主题配置"><a href="#3-hexo主题配置" class="headerlink" title="3.hexo主题配置"></a>3.hexo主题配置</h2><p>　　复制<code>theme/pure/_source/</code>文件夹到<code>blog path/source/</code> 目录下以便安装全部功能<br>hexo全局配置在根目录<code>_config.yml</code>里<br><code>theme: pure</code>,输入对应的主题名保存即可更换主题，每个主题的配置文件在根目录文件夹themes下，继续修改相关信息</p><h2 id="4-配置评论功能"><a href="#4-配置评论功能" class="headerlink" title="4.配置评论功能"></a>4.配置评论功能</h2><p>　　目前免服务器的有gitment（停止维护），gittalk（推荐）</p><h4 id="1-点我设置github授权地址"><a href="#1-点我设置github授权地址" class="headerlink" title="1. 点我设置github授权地址"></a>1. <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">点我设置github授权地址</a></h4><p>操作演示：<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326062224994.png" alt=""><br>注册成功后记住 ClientID 和 ClientSecret，下一步用</p><h4 id="2-修改主题配置"><a href="#2-修改主题配置" class="headerlink" title="2. 修改主题配置"></a>2. 修改主题配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">comment:</span><br><span class="line">  type: gitalk  # 启用哪种评论系统</span><br><span class="line">  gitalk: # gitalk. https:&#x2F;&#x2F;gitalk.github.io&#x2F;</span><br><span class="line">    owner: #必须. GitHub repository 所有者，可以是个人或者组织。</span><br><span class="line">    admin: #必须. GitHub repository 的所有者和合作者 (对这个 repository 有写权限的用户)。</span><br><span class="line">    repo:  comment #必须. GitHub repository.</span><br><span class="line">    ClientID:  #必须. GitHub Application Client ID.</span><br><span class="line">    ClientSecret:  #必须. GitHub Application Client Secret.</span><br></pre></td></tr></table></figure><h4 id="3-登陆github账户记录评论"><a href="#3-登陆github账户记录评论" class="headerlink" title="3. 登陆github账户记录评论"></a>3. 登陆github账户记录评论</h4><p><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326063139811.png" alt=""><br>如果报错请自行百度，目前遇到 network error情况，为当前wifi问题</p><h4 id="4-更换正文字体大小"><a href="#4-更换正文字体大小" class="headerlink" title="4. 更换正文字体大小"></a>4. 更换正文字体大小</h4><p>　　通过 F12 发现正文文字是用<code>&lt;p&gt;</code> ，然后找了下文件夹，最后定位到<code>pure\source\css</code>文件夹下<code>style.css</code>中，往下拉定位到<code>&lt;p&gt;</code>标签<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/Hexo%E8%BF%9B%E9%98%B6%EF%BC%88%E4%BA%8C%EF%BC%89/20200326083126033.png" alt="">加这么一行保存重启hexo</p><h4 id="5-搜索出现bug"><a href="#5-搜索出现bug" class="headerlink" title="5. 搜索出现bug"></a>5. 搜索出现bug</h4><p>　　搜索文章正常说明搜索功能是好使的，但是搜索标签等就出现问题了，发现跳到<code>https://yoursite.com/categories/%E6%95%99%E7%A8%8B/</code>,说明配置里一定有这个网站，于是全局搜索<code>yoursite</code>发现根目录配置url，修改成自己博客地址即可</p><h4 id="6-title是中地址栏转义问题"><a href="#6-title是中地址栏转义问题" class="headerlink" title="6. title是中地址栏转义问题"></a>6. title是中地址栏转义问题</h4><p>　　写博客的过程中出现过以下情况<br><img src="/20200325215108/20200327084001717.png" alt="">这样就很烦，看着也不规范，看了下结构是发现用的 .md 文件的 title 命名的,像这种模版化的规则一般都有配置的，于是着了下hexo配置文件，发现这么个东西<code>permalink: :year/:month/:day/:title/</code>,发现正好对上了，百度了下这个东西叫永久链接的配置，那这样就好办了，想到这个title只是一个定位标示，如果把定位标示变成数字或者字母不就好了，于是<code>scaffolds/post.md</code>里面修改默认新建post的模版，添加个字段<code>alias</code>，然后配置里面<code>permalink: :year/:month/:day/:alias/</code>，打完收工</p>]]></content>
     
@@ -68,9 +68,9 @@
       <category term="教程" scheme="http://pangxue.vip/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="主题" scheme="http://pangxue.vip/tags/%E4%B8%BB%E9%A2%98/"/>
+      <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
     
-      <category term="配置" scheme="http://pangxue.vip/tags/%E9%85%8D%E7%BD%AE/"/>
+      <category term="主题" scheme="http://pangxue.vip/tags/%E4%B8%BB%E9%A2%98/"/>
     
   </entry>
   
@@ -79,7 +79,7 @@
     <link href="http://pangxue.vip/2020/03/25/HexoInstallation/"/>
     <id>http://pangxue.vip/2020/03/25/HexoInstallation/</id>
     <published>2020-03-25T13:51:07.000Z</published>
-    <updated>2020-03-27T00:58:16.381Z</updated>
+    <updated>2020-03-27T02:39:41.616Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1. 安装hexo"></a>1. 安装hexo</h2><p>　　详细安装过程可参考<a href="https://blog.csdn.net/SR02020/article/details/104876531/" target="_blank" rel="noopener">安装教程</a></p><h3 id="1-1-安装-git"><a href="#1-1-安装-git" class="headerlink" title="1.1 安装 git"></a>1.1 <strong>安装 git</strong></h3><p>　　windows下载地址：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a><br>双击下载好的exe文件，一路next就好啦<br>git version 查看版本</p><h3 id="1-2-安装-nodejs"><a href="#1-2-安装-nodejs" class="headerlink" title="1.2 安装 nodejs"></a>1.2 安装 nodejs</h3><p>　　下载地址：<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">下载地址</a>　。双击打开安装，也是一路next，不过在Custom Setup这一步记得选 <code>Add to PATH</code> ,这样你就不用自己去配置电脑上环境变量了，装完在按 <code>win + r</code> 快捷键调出运行，然后输入cmd确定，在cmd中输入path可以看到你的node是否配置在里面（环境变量）</p><p><a href="https://www.cnblogs.com/liuqiyun/p/8133904.html" target="_blank" rel="noopener">自定义插件安装位置可参考</a></p><ol><li>在<code>D:\work\nodejs</code>里新建2个文件夹<code>node_global</code>及<code>node_cache</code>,接下来打开命令行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;D:\work\nodejs\npm_global&quot;</span><br><span class="line">npm config set cache &quot;D:\work\nodejs\npm_cache&quot;</span><br></pre></td></tr></table></figure></li><li>打开系统变量，新建<br><code>NODE_PATH</code><br><code>D:\work\nodejs\npm_global\node_modules</code></li><li>编辑用户变量中的path，<code>C: \Users\px\App Data\Roaming\npm</code>替换成<code>D:\work\nodejs\npm_global</code></li></ol><h3 id="1-3-配置npm"><a href="#1-3-配置npm" class="headerlink" title="1.3 配置npm"></a>1.3 配置npm</h3><p>　　在想要安装的目标文件夹下打开GitBash</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry &quot;https:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;&quot;</span><br><span class="line">npm config set electron_mirror &quot;https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;electron&#x2F;&quot;</span><br><span class="line">npm i -g hexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure><h3 id="1-4-搭建gitHub项目"><a href="#1-4-搭建gitHub项目" class="headerlink" title="1.4 搭建gitHub项目"></a>1.4 搭建gitHub项目</h3><p>　　自行搭建ssh免密码push git项目，创建一个repo，名称为<code>yourname.github.io</code>, 其中yourname是你的github名称，生成项目的最终地址是<code>https://github.com/yourname/yourname.github.io.git</code>,hexo的外网访问环境是<code>https://yourname.github.io/</code></p><h3 id="1-5-将hexo上传到gitHub"><a href="#1-5-将hexo上传到gitHub" class="headerlink" title="1.5 将hexo上传到gitHub"></a>1.5 将hexo上传到gitHub</h3><p>　　用编辑器打开你的blog项目，修改<code>_config.yml</code>文件的一些配置(冒号之后都是有一个半角空格的)：</p><pre><code>deploy:   type: git  repo: git@github.com:YourName/YourbName.github.io.git   branch: masternpm install hexo-deployer-git --savehexo cleanhexo ghexo d</code></pre><p>如果出现以下错误：<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326085511338.png" alt=""><br>那么说明头部格式错误，请检查头部格式：<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326085904905.png" alt=""></p><h3 id="1-6-绑定个人域名"><a href="#1-6-绑定个人域名" class="headerlink" title="1.6 绑定个人域名"></a>1.6 绑定个人域名</h3><p>　　访问腾讯域名管理网站（域名自行购买）<code>https://console.cloud.tencent.com/domain</code><br>点 操作-&gt;解析-&gt;添加记录<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/20200325215107/20200326083113281.png" alt=""><br><strong>其中最重要的是ip解析，打开cmd，输入</strong> <code>ping yourname.github.io</code><strong>，把返回的ip地址填入，然后保存。<br>如果出现４０４是因为：<br>项目操作变化需要修改映射的ip地址，可能是github项目被修改了，或者github出现缓存了，刷新页面或者重新部署等等</strong></p>]]></content>
     
@@ -97,8 +97,6 @@
     
     
       <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
-    
-      <category term="博客" scheme="http://pangxue.vip/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="教程" scheme="http://pangxue.vip/tags/%E6%95%99%E7%A8%8B/"/>
     
