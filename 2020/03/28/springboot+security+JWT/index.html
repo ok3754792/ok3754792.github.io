@@ -17,25 +17,26 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>springboot+security+JWT实现权限认证 | Hexo</title>
-  <meta name="description" content="1. 简介　　security是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证 2. 教程   教程： https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;v6qUncrHI09S2s3GroTe7w 3. 注意点　　1. jwt相关属性可配置在配置文件中　　　　2. jwt映射model需要注意下　　　　　　3. 注意下propertySource注解的 factor">
+  <title>springboot+security+JWT | Hexo</title>
+  <meta name="description" content="1. 简介　　security是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证 2. 教程   教程： https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;v6qUncrHI09S2s3GroTe7w 3. 注意点　　1. jwt相关属性可配置在配置文件中　　2. jwt映射model需要注意下　　3. 注意下propertySource注解的 factory &#x3D; Ya">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot+security+JWT实现权限认证">
+<meta property="og:title" content="springboot+security+JWT">
 <meta property="og:url" content="http://pangxue.vip/2020/03/28/springboot+security+JWT/index.html">
 <meta property="og:site_name" content="px-blog">
-<meta property="og:description" content="1. 简介　　security是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证 2. 教程   教程： https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;v6qUncrHI09S2s3GroTe7w 3. 注意点　　1. jwt相关属性可配置在配置文件中　　　　2. jwt映射model需要注意下　　　　　　3. 注意下propertySource注解的 factor">
+<meta property="og:description" content="1. 简介　　security是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证 2. 教程   教程： https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;v6qUncrHI09S2s3GroTe7w 3. 注意点　　1. jwt相关属性可配置在配置文件中　　2. jwt映射model需要注意下　　3. 注意下propertySource注解的 factory &#x3D; Ya">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://pangxue.vip/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png">
-<meta property="og:image" content="http://pangxue.vip/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085305188.png">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102236995.png">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402101752754.png">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102053361.png">
 <meta property="article:published_time" content="2020-03-28T02:04:31.000Z">
-<meta property="article:modified_time" content="2020-04-02T14:02:56.965Z">
+<meta property="article:modified_time" content="2020-04-02T14:22:49.888Z">
 <meta property="article:author" content="px">
 <meta property="article:tag" content="springboot">
 <meta property="article:tag" content="security">
 <meta property="article:tag" content="JWT">
 <meta property="article:tag" content="权限认证">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://pangxue.vip/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png">
+<meta name="twitter:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102236995.png">
   <!-- Canonical links -->
   <link rel="canonical" href="http://pangxue.vip/2020/03/28/springboot+security+JWT/index.html">
   
@@ -260,7 +261,7 @@
                 <a class="category-link" href="/categories/java/">java</a>
               </p>
               <p class="item-title">
-                <a href="/2020/03/28/springboot+security+JWT/" class="title">springboot+security+JWT实现权限认证</a>
+                <a href="/2020/03/28/springboot+security+JWT/" class="title">springboot+security+JWT</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-03-28T02:04:31.000Z" itemprop="datePublished">2020-03-28</time>
@@ -341,14 +342,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-springboot+security+JWT实现权限认证" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-springboot+security+JWT" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      springboot+security+JWT实现权限认证
+      springboot+security+JWT
     </h1>
   
 
@@ -384,7 +385,7 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2020/03/28/springboot+security+JWT/" class="leancloud_visitors"  data-flag-title="springboot+security+JWT实现权限认证">0</span>
+    	<span id="/2020/03/28/springboot+security+JWT/" class="leancloud_visitors"  data-flag-title="springboot+security+JWT">0</span>
     </span>
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/28/springboot+security+JWT/#comments" class="article-comment-link">评论</a></span>
@@ -402,7 +403,7 @@
       
         <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>　　<code>security</code>是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证</p>
 <h2 id="2-教程"><a href="#2-教程" class="headerlink" title="2. 教程"></a>2. 教程</h2><p>   教程： <code>https://mp.weixin.qq.com/s/v6qUncrHI09S2s3GroTe7w</code></p>
-<h2 id="3-注意点"><a href="#3-注意点" class="headerlink" title="3. 注意点"></a>3. 注意点</h2><p>　　1. jwt相关属性可配置在配置文件中<br>　　<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png" alt=""><br>　　2. jwt映射model需要注意下　　<br>　　<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085305188.png" alt=""><br>　　3. 注意下propertySource注解的 <code>factory = YamlPropertySourceFactory.class</code>,这个是专门为了yml配置文件注入</p>
+<h2 id="3-注意点"><a href="#3-注意点" class="headerlink" title="3. 注意点"></a>3. 注意点</h2><p>　　1. jwt相关属性可配置在配置文件中<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102236995.png" alt=""><br>　　2. jwt映射model需要注意下<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402101752754.png" alt=""><br>　　3. 注意下propertySource注解的 <code>factory = YamlPropertySourceFactory.class</code>,这个是专门为了yml配置文件注入<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102053361.png" alt=""></p>
 
       
     </div>
@@ -412,7 +413,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://pangxue.vip/2020/03/28/springboot+security+JWT/" title="springboot+security+JWT实现权限认证" target="_blank" rel="external">http://pangxue.vip/2020/03/28/springboot+security+JWT/</a>
+      <a href="http://pangxue.vip/2020/03/28/springboot+security+JWT/" title="springboot+security+JWT" target="_blank" rel="external">http://pangxue.vip/2020/03/28/springboot+security+JWT/</a>
     </li>
     
     <li class="post-copyright-license">
