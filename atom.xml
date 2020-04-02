@@ -126,9 +126,9 @@
       <category term="教程" scheme="http://pangxue.vip/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
-    
       <category term="主题" scheme="http://pangxue.vip/tags/%E4%B8%BB%E9%A2%98/"/>
+    
+      <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
     
   </entry>
   
