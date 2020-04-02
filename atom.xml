@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pangxue.vip/"/>
-  <updated>2020-04-02T13:53:51.074Z</updated>
+  <updated>2020-04-02T14:02:56.965Z</updated>
   <id>http://pangxue.vip/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://pangxue.vip/2020/03/28/springboot+security+JWT/"/>
     <id>http://pangxue.vip/2020/03/28/springboot+security+JWT/</id>
     <published>2020-03-28T02:04:31.000Z</published>
-    <updated>2020-04-02T13:53:51.074Z</updated>
+    <updated>2020-04-02T14:02:56.965Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>　　<code>security</code>是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证</p><h2 id="2-教程"><a href="#2-教程" class="headerlink" title="2. 教程"></a>2. 教程</h2><p>   教程： <code>https://mp.weixin.qq.com/s/v6qUncrHI09S2s3GroTe7w</code></p><h2 id="3-注意点"><a href="#3-注意点" class="headerlink" title="3. 注意点"></a>3. 注意点</h2><p>　　1. jwt相关属性可配置在配置文件中<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png" alt=""><br>　　2. jwt映射model需要注意下　　<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085305188.png" alt=""><br>　　3. 注意下propertySource注解的 <code>factory = YamlPropertySourceFactory.class</code>,这个是专门为了yml配置文件注入</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>　　<code>security</code>是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证</p><h2 id="2-教程"><a href="#2-教程" class="headerlink" title="2. 教程"></a>2. 教程</h2><p>   教程： <code>https://mp.weixin.qq.com/s/v6qUncrHI09S2s3GroTe7w</code></p><h2 id="3-注意点"><a href="#3-注意点" class="headerlink" title="3. 注意点"></a>3. 注意点</h2><p>　　1. jwt相关属性可配置在配置文件中<br>　　<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png" alt=""><br>　　2. jwt映射model需要注意下　　<br>　　<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085305188.png" alt=""><br>　　3. 注意下propertySource注解的 <code>factory = YamlPropertySourceFactory.class</code>,这个是专门为了yml配置文件注入</p>]]></content>
     
     <summary type="html">
     
@@ -96,11 +96,11 @@
       <category term="教程" scheme="http://pangxue.vip/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
-    
       <category term="HexoEditor" scheme="http://pangxue.vip/tags/HexoEditor/"/>
     
       <category term="ide" scheme="http://pangxue.vip/tags/ide/"/>
+    
+      <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
     
   </entry>
   
@@ -126,9 +126,9 @@
       <category term="教程" scheme="http://pangxue.vip/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="主题" scheme="http://pangxue.vip/tags/%E4%B8%BB%E9%A2%98/"/>
-    
       <category term="hexo" scheme="http://pangxue.vip/tags/hexo/"/>
+    
+      <category term="主题" scheme="http://pangxue.vip/tags/%E4%B8%BB%E9%A2%98/"/>
     
   </entry>
   
