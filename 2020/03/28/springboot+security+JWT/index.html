@@ -17,18 +17,27 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>标签: HexoEditor | Hexo</title>
-  <meta name="description" content="record">
-<meta property="og:type" content="website">
-<meta property="og:title" content="px-blog">
-<meta property="og:url" content="http://pangxue.vip/tags/HexoEditor/index.html">
+  <title>springboot+security+JWT实现权限认证 | Hexo</title>
+  <meta name="description" content="1. 简介　　security是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证 2. 教程   教程： https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;v6qUncrHI09S2s3GroTe7w 3. 注意点　　1. jwt相关属性可配置在配置文件中　　2. jwt映射model需要注意下　　　　3. 注意下propertySource注解的 factory &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springboot+security+JWT实现权限认证">
+<meta property="og:url" content="http://pangxue.vip/2020/03/28/springboot+security+JWT/index.html">
 <meta property="og:site_name" content="px-blog">
-<meta property="og:description" content="record">
+<meta property="og:description" content="1. 简介　　security是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证 2. 教程   教程： https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;v6qUncrHI09S2s3GroTe7w 3. 注意点　　1. jwt相关属性可配置在配置文件中　　2. jwt映射model需要注意下　　　　3. 注意下propertySource注解的 factory &#x3D;">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pangxue.vip/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png">
+<meta property="og:image" content="http://pangxue.vip/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085305188.png">
+<meta property="article:published_time" content="2020-03-28T02:04:31.000Z">
+<meta property="article:modified_time" content="2020-04-02T13:53:51.074Z">
 <meta property="article:author" content="px">
+<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="security">
+<meta property="article:tag" content="JWT">
+<meta property="article:tag" content="权限认证">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pangxue.vip/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://pangxue.vip/tags/HexoEditor/index.html">
+  <link rel="canonical" href="http://pangxue.vip/2020/03/28/springboot+security+JWT/index.html">
   
     <link rel="alternate" href="/atom.xml" title="px-blog" type="application/atom+xml">
   
@@ -329,74 +338,194 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-tags post-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">标签: HexoEditor</h1>
-      <p class="text-muted hidden-xs">共 1 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/tags">All</a></li>
-          
-          <li><a href="/tags/hexo/">hexo</a></li>
-          
-          <li><a href="/tags/教程/">教程</a></li>
-          
-          <li><a href="/tags/主题/">主题</a></li>
-          
-          <li><a href="/tags/HexoEditor/">HexoEditor</a></li>
-          
-          <li><a href="/tags/ide/">ide</a></li>
-          
-          <li><a href="/tags/springboot/">springboot</a></li>
-          
-          <li><a href="/tags/security/">security</a></li>
-          
-          <li><a href="/tags/JWT/">JWT</a></li>
-          
-          <li><a href="/tags/权限认证/">权限认证</a></li>
-          
-          <li><a href="/tags/swagger/">swagger</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="row">
-        
-<div class="col-md-6">
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-springboot+security+JWT实现权限认证" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-<article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="panel-body">
-     <div class="article-meta">
-       <time datetime="2020-03-27T00:59:16.000Z" itemprop="datePublished">2020-03-27</time>
-     </div>
-     <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/2020/03/27/HexoTools/">Hexo工具（三）</a>
-     </h3>
-   </div>
-   
-   <div class="panel-footer">
-     
-      <a href="/tags/hexo/" class="label label-default mb">hexo</a>
-     
-      <a href="/tags/HexoEditor/" class="label label-default mb">HexoEditor</a>
-     
-      <a href="/tags/ide/" class="label label-default mb">ide</a>
-     
-     
-   </div>
-   
-</article>
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      springboot+security+JWT实现权限认证
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/03/28/springboot+security+JWT/" class="article-date">
+	  <time datetime="2020-03-28T02:04:31.000Z" itemprop="datePublished">2020-03-28</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/JWT/" rel="tag">JWT</a>, <a class="article-tag-link" href="/tags/security/" rel="tag">security</a>, <a class="article-tag-link" href="/tags/springboot/" rel="tag">springboot</a>, <a class="article-tag-link" href="/tags/%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/" rel="tag">权限认证</a>
+  </span>
 
 
-</div>
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2020/03/28/springboot+security+JWT/" class="leancloud_visitors"  data-flag-title="springboot+security+JWT实现权限认证">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/28/springboot+security+JWT/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 101(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+	
 
       </div>
     </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>　　<code>security</code>是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证</p>
+<h2 id="2-教程"><a href="#2-教程" class="headerlink" title="2. 教程"></a>2. 教程</h2><p>   教程： <code>https://mp.weixin.qq.com/s/v6qUncrHI09S2s3GroTe7w</code></p>
+<h2 id="3-注意点"><a href="#3-注意点" class="headerlink" title="3. 注意点"></a>3. 注意点</h2><p>　　1. jwt相关属性可配置在配置文件中<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png" alt=""><br>　　2. jwt映射model需要注意下　　<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085305188.png" alt=""><br>　　3. 注意下propertySource注解的 <code>factory = YamlPropertySourceFactory.class</code>,这个是专门为了yml配置文件注入</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://pangxue.vip/2020/03/28/springboot+security+JWT/" title="springboot+security+JWT实现权限认证" target="_blank" rel="external">http://pangxue.vip/2020/03/28/springboot+security+JWT/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">px</span><small class="ml-1x">是老学学啊</small></a></h3>
+        <div>你要是讨厌他们，我们就不跟他们相处了，我们一起离开这里，找个像岛上那样的地方!</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
   </article>
-   
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/03/27/java-swagger/" title="swagger踩坑"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -449,6 +578,123 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- custom analytics part create by xiamo -->
+<script defer src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+<script defer>
+AV.init({
+  appId: '',
+  appKey: ''
+});
+
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+		var visitors= $('.leancloud_visitors');
+		query.greaterThanOrEqualTo("time", 0);		
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {				
+					return;
+				}
+				var data = results;
+				visitors.each(function(){
+					var url = $(this).attr('id').trim();					
+					for (var i = 0; i < data.length; i++) {
+						var object = data[i];
+						var content = object.get('time');
+						var _url = object.get('url')
+						if(url == _url){
+							$(this).text(content);
+						}
+					}
+				})
+				
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else {
+		showTime(Counter);
+	}
+}); 
+</script>
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '43b3a243acc7f6de2120',
+    clientSecret: 'c58ca172aedd5ef76c5a021ffb0b4c3ffeef69c9',
+    repo: 'comment',
+    owner: 'ok3754792',
+    admin: ['ok3754792'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
 
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pangxue.vip/"/>
-  <updated>2020-03-27T02:36:25.522Z</updated>
+  <updated>2020-04-02T13:53:51.074Z</updated>
   <id>http://pangxue.vip/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot+security+JWT实现权限认证</title>
+    <link href="http://pangxue.vip/2020/03/28/springboot+security+JWT/"/>
+    <id>http://pangxue.vip/2020/03/28/springboot+security+JWT/</id>
+    <published>2020-03-28T02:04:31.000Z</published>
+    <updated>2020-04-02T13:53:51.074Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>　　<code>security</code>是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证</p><h2 id="2-教程"><a href="#2-教程" class="headerlink" title="2. 教程"></a>2. 教程</h2><p>   教程： <code>https://mp.weixin.qq.com/s/v6qUncrHI09S2s3GroTe7w</code></p><h2 id="3-注意点"><a href="#3-注意点" class="headerlink" title="3. 注意点"></a>3. 注意点</h2><p>　　1. jwt相关属性可配置在配置文件中<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085116186.png" alt=""><br>　　2. jwt映射model需要注意下　　<img src="/springboot+security+JWT%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/20200402085305188.png" alt=""><br>　　3. 注意下propertySource注解的 <code>factory = YamlPropertySourceFactory.class</code>,这个是专门为了yml配置文件注入</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1. 简介&quot;&gt;&lt;/a&gt;1. 简介&lt;/h2&gt;&lt;p&gt;　　&lt;code&gt;security&lt;/code&gt;是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://pangxue.vip/categories/java/"/>
+    
+    
+      <category term="springboot" scheme="http://pangxue.vip/tags/springboot/"/>
+    
+      <category term="security" scheme="http://pangxue.vip/tags/security/"/>
+    
+      <category term="JWT" scheme="http://pangxue.vip/tags/JWT/"/>
+    
+      <category term="权限认证" scheme="http://pangxue.vip/tags/%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swagger踩坑</title>
+    <link href="http://pangxue.vip/2020/03/27/java-swagger/"/>
+    <id>http://pangxue.vip/2020/03/27/java-swagger/</id>
+    <published>2020-03-27T14:32:44.000Z</published>
+    <updated>2020-04-02T10:32:55.816Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-前情提要"><a href="#1-前情提要" class="headerlink" title="1. 前情提要"></a>1. 前情提要</h2><p>　　请按照以下地址配置：　<code>https://blog.csdn.net/weixin_33690963/article/details/92055964</code></p><h2 id="2-启动失败"><a href="#2-启动失败" class="headerlink" title="2. 启动失败"></a>2. 启动失败</h2><p>　　项目启动，注册bean失败，打包失败，由于项目使用了mp2，发现是model映射字段出问题了，开启驼峰自动映射之后一定要注意字段名字问题</p><h2 id="3-swagger首页空白"><a href="#3-swagger首页空白" class="headerlink" title="3. swagger首页空白"></a>3. swagger首页空白</h2><p>　　swagger访问页面空白，发开F12,发现swagger-ui.html页面404，由于项目使用了security，说明被拦截了，打开JWT配置文件添加以下设置<img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/swagger%E8%B8%A9%E5%9D%91/20200401113239647.png" alt=""></p><h2 id="3-页面404"><a href="#3-页面404" class="headerlink" title="3. 页面404"></a>3. 页面404</h2><p>　　参考：<code>https://blog.csdn.net/ljm_csdn/article/details/87615670</code>，一定是管理资源的 WebMvcConfiguration 在其他配置类里被占用了，我的事在 json 配置类里占用的<br>  <img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/swagger%E8%B8%A9%E5%9D%91/20200401113932793.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-前情提要&quot;&gt;&lt;a href=&quot;#1-前情提要&quot; class=&quot;headerlink&quot; title=&quot;1. 前情提要&quot;&gt;&lt;/a&gt;1. 前情提要&lt;/h2&gt;&lt;p&gt;　　请按照以下地址配置：　&lt;code&gt;https://blog.csdn.net/weixin_3369
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://pangxue.vip/categories/java/"/>
+    
+    
+      <category term="swagger" scheme="http://pangxue.vip/tags/swagger/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo工具（三）</title>
