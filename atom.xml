@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pangxue.vip/"/>
-  <updated>2020-04-05T01:07:39.875Z</updated>
+  <updated>2020-04-06T10:13:13.630Z</updated>
   <id>http://pangxue.vip/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mysql优化心得</title>
+    <link href="http://pangxue.vip/2020/04/06/sqlOptimization/"/>
+    <id>http://pangxue.vip/2020/04/06/sqlOptimization/</id>
+    <published>2020-04-06T03:12:11.000Z</published>
+    <updated>2020-04-06T10:13:13.630Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-建表基础向"><a href="#1-建表基础向" class="headerlink" title="1. 建表基础向"></a>1. 建表基础向</h2><p>　　1. 字段精度尽量精确，能用int就不用varchar，能用tinyint就不用int<br>　　2. null用数字代替<br>　　3. 枚举类可用数字代替</p><h2 id="2-索引"><a href="#2-索引" class="headerlink" title="2. 索引"></a>2. 索引</h2><p>　　1. 索引不宜多，常用的where，order by字段索引<br>　　2. 避免索引上的null的判断，比较<br>　　3. varchar比较大的可以试试前缀索引<br>　　4. 联合索引和单索引重叠时，可以删除单索引，注意顺序</p><h2 id="3-sql向"><a href="#3-sql向" class="headerlink" title="3. sql向"></a>3. sql向</h2><p>　　1. 不要在sql中运算，运算放在程序里<br>　　2. 小数据in是可以走索引的<br>　　3. 存储过程，触发器，时间尽量在程序中实现<br>　　4. join on的字段类型要保持一致</p><h2 id="4-简单水平分区"><a href="#4-简单水平分区" class="headerlink" title="4. 简单水平分区"></a>4. 简单水平分区</h2><p>　　1. 数据分散，对大表数据最简单的优化方案，通常基于时间分区（Range分区），并且开始设置每天，月自动执行分区。查询时加上时间范围很快。<br>　　2. 如果某个字段有特殊的意义会导致经常访问，那么可以按照这个逻辑把这个数据放到单独的分区表中，或者缓存到缓存中</p><h2 id="5-垂直分库"><a href="#5-垂直分库" class="headerlink" title="5. 垂直分库"></a>5. 垂直分库</h2><p>　　把大表常用字段和不常用字段垂直拆开，分为两个表，或者多个表。只能使行数据变小但是无法解决单表数据量过大的问题，而且要维护主键，维护代码</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-建表基础向&quot;&gt;&lt;a href=&quot;#1-建表基础向&quot; class=&quot;headerlink&quot; title=&quot;1. 建表基础向&quot;&gt;&lt;/a&gt;1. 建表基础向&lt;/h2&gt;&lt;p&gt;　　1. 字段精度尽量精确，能用int就不用varchar，能用tinyint就不用int&lt;br
+      
+    
+    </summary>
+    
+    
+      <category term="MYSQL" scheme="http://pangxue.vip/categories/MYSQL/"/>
+    
+    
+      <category term="sql优化" scheme="http://pangxue.vip/tags/sql%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>springboot+security+JWT</title>
     <link href="http://pangxue.vip/2020/03/28/springboot+security+JWT/"/>
     <id>http://pangxue.vip/2020/03/28/springboot+security+JWT/</id>
     <published>2020-03-28T02:04:31.000Z</published>
-    <updated>2020-04-05T01:07:39.875Z</updated>
+    <updated>2020-04-05T06:51:07.515Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>　　<code>security</code>是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证</p><h2 id="2-教程"><a href="#2-教程" class="headerlink" title="2. 教程"></a>2. 教程</h2><p>   教程： <code>https://mp.weixin.qq.com/s/v6qUncrHI09S2s3GroTe7w</code></p><h2 id="3-配置jwt"><a href="#3-配置jwt" class="headerlink" title="3. 配置jwt"></a>3. 配置jwt</h2><p>　　jwt相关属性可配置在配置文件中<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102236995.png" alt=""></p><h2 id="3-jwt配置类的映射model"><a href="#3-jwt配置类的映射model" class="headerlink" title="3. jwt配置类的映射model"></a>3. jwt配置类的映射model</h2><p>　　需要注意：<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402101752754.png" alt=""><br>并且要注意下propertySource注解的 <code>factory = YamlPropertySourceFactory.class</code>,这个是专门为了yml配置文件注入<br>　　<img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102053361.png" alt=""></p><p>　　5. 拓展，从jwt中获取用户信息</p><h2 id="４-单点登陆："><a href="#４-单点登陆：" class="headerlink" title="４. 单点登陆："></a>４. 单点登陆：</h2><p>　　实质上就是刷新token，并且保证之前的token失效，如果使用redis存储token就又变得有状态了，违反了设计初衷，放在数据库中每次都要查询，浪费资源。目前好香米有什么好的解决办法</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>　　<code>security</code>是企业级安全框架，可用于用户认证,实现前后分离权限注解，通过JWT登录认证</p><h2 id="2-教程"><a href="#2-教程" class="headerlink" title="2. 教程"></a>2. 教程</h2><p>   教程： <code>https://mp.weixin.qq.com/s/v6qUncrHI09S2s3GroTe7w</code></p><h2 id="3-配置jwt"><a href="#3-配置jwt" class="headerlink" title="3. 配置jwt"></a>3. 配置jwt</h2><p>　　jwt相关属性可配置在配置文件中<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102236995.png" alt=""></p><h2 id="3-jwt配置类的映射model"><a href="#3-jwt配置类的映射model" class="headerlink" title="3. jwt配置类的映射model"></a>3. jwt配置类的映射model</h2><p>　　需要注意：<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402101752754.png" alt=""><br>并且要注意下propertySource注解的 <code>factory = YamlPropertySourceFactory.class</code>,这个是专门为了yml配置文件注入<br>　　<img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/springboot%2Bsecurity%2BJWT/20200402102053361.png" alt=""></p><h2 id="４-单点登陆："><a href="#４-单点登陆：" class="headerlink" title="４. 单点登陆："></a>４. 单点登陆：</h2><p>　　实质上就是刷新token，并且保证之前的token失效，如果使用redis存储token就又变得有状态了，违反了设计初衷，放在数据库中每次都要查询，浪费资源。目前好香米有什么好的解决办法</p>]]></content>
     
     <summary type="html">
     
