@@ -510,11 +510,11 @@
       <category term="教程" scheme="pangxue.vip/categories/%E6%95%99%E7%A8%8B/"/>
     
     
+      <category term="hexo" scheme="pangxue.vip/tags/hexo/"/>
+    
       <category term="HexoEditor" scheme="pangxue.vip/tags/HexoEditor/"/>
     
       <category term="ide" scheme="pangxue.vip/tags/ide/"/>
-    
-      <category term="hexo" scheme="pangxue.vip/tags/hexo/"/>
     
   </entry>
   
