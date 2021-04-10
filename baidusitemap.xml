@@ -1,22 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://pangxue.vip/2020/04/06/sqlOptimization/</loc>
+    <loc>pangxue.vip/2020/04/20/aboutlambda/</loc>
+    <lastmod>2021-04-10</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2021/04/11/null/</loc>
+    <lastmod>2021-04-10</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2021/04/11/mysql/</loc>
+    <lastmod>2021-04-10</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/22/aopCheckRepeat/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/05/19/aboutmysql/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/05/26/MyBatisCodeHelper/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/05/21/ideasetting/</loc>
+    <lastmod>2020-05-21</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/05/08/aboutthread/</loc>
+    <lastmod>2020-05-21</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/05/07/aboutspringcloud/</loc>
+    <lastmod>2020-05-07</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/29/check-data-repeat/</loc>
+    <lastmod>2020-04-29</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/27/gitlab/</loc>
+    <lastmod>2020-04-29</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/27/tree/</loc>
+    <lastmod>2020-04-27</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/24/EasyExcel/</loc>
+    <lastmod>2020-04-24</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/17/idea-mybatis-general-setting/</loc>
+    <lastmod>2020-04-17</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/14/aboutlombok/</loc>
+    <lastmod>2020-04-15</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/14/module/</loc>
+    <lastmod>2020-04-14</lastmod>
+  </url>  <url>
+    <loc>pangxue.vip/2020/04/06/sqlOptimization/</loc>
     <lastmod>2020-04-06</lastmod>
   </url>  <url>
-    <loc>http://pangxue.vip/2020/03/28/springboot+security+JWT/</loc>
+    <loc>pangxue.vip/2020/03/28/springboot+security+JWT/</loc>
     <lastmod>2020-04-05</lastmod>
   </url>  <url>
-    <loc>http://pangxue.vip/2020/03/27/java-swagger/</loc>
+    <loc>pangxue.vip/2020/03/27/java-swagger/</loc>
     <lastmod>2020-04-02</lastmod>
   </url>  <url>
-    <loc>http://pangxue.vip/2020/03/26/HexoAdvanced/</loc>
+    <loc>pangxue.vip/2020/03/26/HexoAdvanced/</loc>
     <lastmod>2020-03-27</lastmod>
   </url>  <url>
-    <loc>http://pangxue.vip/2020/03/25/HexoInstallation/</loc>
+    <loc>pangxue.vip/2020/03/25/HexoInstallation/</loc>
     <lastmod>2020-03-27</lastmod>
   </url>  <url>
-    <loc>http://pangxue.vip/2020/03/27/HexoTools/</loc>
+    <loc>pangxue.vip/2020/03/27/HexoTools/</loc>
     <lastmod>2020-03-27</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>线程相关 | Hexo</title>
+  <meta name="description" content="1.线程安全 线程安全：多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。  线程不安全：不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据  线程安全问题都是由多个线程访问同一个共享资源的写操作引起的。比如一个 ArrayList 类，如果是在多线程情况下，线程 A 先将元素存放在位置 0。但是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程相关">
+<meta property="og:url" content="pangxue.vip/2020/05/08/aboutthread/index.html">
+<meta property="og:site_name" content="px-blog">
+<meta property="og:description" content="1.线程安全 线程安全：多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。  线程不安全：不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据  线程安全问题都是由多个线程访问同一个共享资源的写操作引起的。比如一个 ArrayList 类，如果是在多线程情况下，线程 A 先将元素存放在位置 0。但是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200508015339556.png">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200508015203936.png">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200520095113867.png">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200521095959581.png">
+<meta property="og:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200521100703410.png">
+<meta property="article:published_time" content="2020-05-08T02:26:16.000Z">
+<meta property="article:modified_time" content="2020-05-21T02:08:06.973Z">
+<meta property="article:author" content="px">
+<meta property="article:tag" content="thread">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200508015339556.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="pangxue.vip/2020/05/08/aboutthread/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="px-blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">px</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">是老学学啊</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 沈阳</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ok3754792" target="_blank" title="Github" ><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>努力吧。。。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MYSQL/">MYSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EasyExcel/" rel="tag">EasyExcel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HexoEditor/" rel="tag">HexoEditor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/" rel="tag">JWT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatisCodeHelper/" rel="tag">MyBatisCodeHelper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aop/" rel="tag">aop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aop-validation/" rel="tag">aop,validation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/" rel="tag">ide</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/idea/" rel="tag">idea</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ideaSetting/" rel="tag">ideaSetting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/idea%E6%8F%92%E4%BB%B6/" rel="tag">idea插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/" rel="tag">springcloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql%E4%BC%98%E5%8C%96/" rel="tag">sql优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger/" rel="tag">swagger</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/" rel="tag">树形结构</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/11/null/" class="title">java中的代理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-10T17:27:53.000Z" itemprop="datePublished">2021-04-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mysql/">mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/11/mysql/" class="title">Mysql语句</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-10T17:03:04.000Z" itemprop="datePublished">2021-04-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/26/MyBatisCodeHelper/" class="title">MyBatisCodeHelper-Pro破解[2.8.1]</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-26T02:05:07.000Z" itemprop="datePublished">2020-05-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/21/ideasetting/" class="title">idea配置</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-21T02:17:25.000Z" itemprop="datePublished">2020-05-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/19/aboutmysql/" class="title">Mysql相关</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-19T01:09:50.000Z" itemprop="datePublished">2020-05-19</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-线程相关" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      线程相关
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/08/aboutthread/" class="article-date">
+	  <time datetime="2020-05-08T02:26:16.000Z" itemprop="datePublished">2020-05-08</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/thread/" rel="tag">thread</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2020/05/08/aboutthread/" class="leancloud_visitors"  data-flag-title="线程相关">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/08/aboutthread/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.9k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="1-线程安全"><a href="#1-线程安全" class="headerlink" title="1.线程安全"></a>1.线程安全</h2><ul>
+<li><p>线程安全：多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。</p>
+</li>
+<li><p>线程不安全：不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据</p>
+</li>
+<li><p>线程安全问题都是由<strong>多个线程访问同一个共享资源的写操作</strong>引起的。比如一个 ArrayList 类，如果是在多线程情况下，线程 A 先将元素存放在位置 0。但是此时 CPU 调度线程A暂停，线程 B 得到运行的机会。线程B也向 ArrayList 添加元素，因为此时 Size 仍然等于 0 ，所以线程B也将元素存放在位置0。然后线程A和线程B都继续运行，都增加 Size 的值，元素实际上只有一个，存放在位置 0，而 Size 却等于 2。这就是“线程不安全”了。</p>
+</li>
+<li><p>对于Integer，++ 操作是不安全的，所以java提供了原子操作类 AtomicInteger 来实现自增等操作</p>
+</li>
+<li><p>静态方法：如果方法内部不操作类的静态变量或者全局变量，那么该方法是线程安全的，如果操作了，那么需要加锁来实现线程安全。</p>
+</li>
+<li><p>解决方法：</p>
+<ul>
+<li><p>锁：<br>每个java对象都可以用做一个实现同步的锁，这些锁成为内置锁。线程进入同步代码块或方法的时候会自动获得该锁，在退出同步代码块或方法时会释放该锁。获得内置锁的唯一途径就是进入这个锁的保护的同步代码块或方法。</p>
+</li>
+<li><p>乐观锁和悲观锁：</p>
+<ul>
+<li>悲观锁：在整个数据处理过程中，将数据处于锁定状态，传统关系型数据库里面的很多锁就是采用的这种机制,例如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。java里面的synchronize和ReentrantLock等重入锁就是采用的这种机制。</li>
+<li>乐观锁：在更新时会判断其他线程在这之前有没有对数据进行修改，一般会使用版本号机制或CAS操作实现在Java中java.util.concurrent.atomic包下面的原子变量类就是使用CAS实现的：实现方式<br>1:<code>update t_goods 
+set status=2,version=version+1
+where id=#{id} and version=#{version};</code><br>2:<code>UPDATE t_goods
+SET num = num - #{buyNum} 
+WHERE id = #{id} 
+AND num - #{buyNum} &gt;= 0 
+AND STATUS = 1</code><br>这两种办法都可以实现，第一种需要额外拓展一个version的字段，第二种适合不用版本号，只更新是做数据安全校验，适合库存模型，扣份额和回滚份额，性能更高。</li>
+</ul>
+</li>
+<li><p>类锁和对象锁：<br>synchronized 加到 static 方法前面是给 class 加锁，即类锁；而synchronized 加到非静态方法前面是给对象上锁。对象锁和类锁是不同的锁，所以多个线程同时执行这2个不同锁的方法时，是异步的。类锁对该类的所有对象都能起作用，而对象锁不能</p>
+</li>
+<li><p>synchronized修饰方法：直接对方法上锁，第一个线程占用之后其他线程必须等待其释放，当方法内业务逻辑复杂时，影响系统运行性能，不会出现数据脏读</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public synchronized int increamentAndGet() &#123;</span><br><span class="line">   System.out.println(&quot;当前余票&quot; + (100 - i));</span><br><span class="line">   i++;</span><br><span class="line">   return i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200508015339556.png" alt=""></p>
+</li>
+<li><p>synchronized修代码块：不锁方法，锁要类的对象,但是并不能保证线程调用的方法体同步执行（同步代码块中执行是同步的）,线程会优先读取被锁住的代码块，代码块内保证了真正的同步，代码块外部还是并发，就会出现数据脏读，例如下图余票</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int increamentAndGet() &#123;</span><br><span class="line">   System.out.println(&quot;当前余票&quot;+(100-i));</span><br><span class="line">   synchronized (this)&#123;</span><br><span class="line">      System.out.println(&quot;当前真实的余票&quot;+(100-i));</span><br><span class="line">      i++;</span><br><span class="line">      return i;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200508015203936.png" alt=""> </p>
+</li>
+<li><p>lock</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Lock lock &#x3D; new ReentrantLock();</span><br><span class="line">public int increamentAndGet() &#123;</span><br><span class="line">   System.out.println(&quot;当前余票&quot; + (100 - i));</span><br><span class="line">   lock.lock();</span><br><span class="line">   System.out.println(&quot;当前真实的余票&quot; + (100 - i));</span><br><span class="line">   i++;</span><br><span class="line">   lock.unlock();</span><br><span class="line">   return i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">      private int i &#x3D; 0;</span><br><span class="line"></span><br><span class="line">      public int increamentAndGet() &#123;</span><br><span class="line">         System.out.println(&quot;当前余票&quot; + (100 - i));</span><br><span class="line">         synchronized (this) &#123;</span><br><span class="line">            System.out.println(&quot;当前真实的余票&quot; + (100 - i));</span><br><span class="line">            i++;</span><br><span class="line">            return i;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      public void thread(Test code) &#123;</span><br><span class="line">         while (true) &#123;</span><br><span class="line">            System.out.println(&quot;用户&quot; + Thread.currentThread().getName() + &quot;买了第&quot; + code.increamentAndGet() + &quot;张票&quot;);</span><br><span class="line">            try &#123;</span><br><span class="line">               Thread.sleep(1000);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">               e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      Test code &#x3D; new Test();</span><br><span class="line">      ExecutorService executorService &#x3D; Executors.newCachedThreadPool();</span><br><span class="line">      executorService.execute(() -&gt; code.thread(code));</span><br><span class="line">      executorService.execute(() -&gt; code.thread(code));</span><br><span class="line">      executorService.execute(() -&gt; code.thread(code));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-单例模式"><a href="#2-单例模式" class="headerlink" title="2.单例模式"></a>2.单例模式</h2><ol>
+<li>使用场景：<ul>
+<li>数据库连接池的设计一般也是采用单例模式</li>
+<li>多线程的线程池的设计一般也是采用单例模式，这是由于线程池要方便对池中的线程进行控制。</li>
+<li>Windows的Task Manager（任务管理器）就是很典型的单例模式（这个很熟悉吧），想想看，是不是呢，你能打开两个windows task manager吗？ 不信你自己试试看哦~</li>
+<li>Web应用的配置对象的读取，一般也应用单例模式，这个是由于配置文件是共享的资源。</li>
+</ul>
+</li>
+<li>实现方式：<ul>
+<li>饿汉式：非懒加载，线程安全。明确需要实例化的情况下使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">   private Singleton ()&#123;&#125;</span><br><span class="line">   private static Singleton instance &#x3D; new Singleton();</span><br><span class="line">   public static Singleton getInstance() &#123;</span><br><span class="line">      return instance;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>双重校验锁：懒加载，线程安全。采用双锁机制，安全且在多线程情况下能保持高性能。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  public class Singleton &#123;</span><br><span class="line">   private Singleton ()&#123;&#125;</span><br><span class="line">   private volatile static Singleton singleton;</span><br><span class="line">   public static Singleton getSingleton() &#123;</span><br><span class="line">      if (singleton &#x3D;&#x3D; null) &#123;&#x2F;&#x2F;第一重</span><br><span class="line">         synchronized (Singleton.class) &#123;</span><br><span class="line">            if (singleton &#x3D;&#x3D; null) &#123;&#x2F;&#x2F;第二重</span><br><span class="line">               singleton &#x3D; new Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return singleton;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>静态内部类：懒加载，线程安全。明确需要懒加载或者实例化特别耗内存的时候使用。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  public class Singleton &#123;</span><br><span class="line">   private static class SingletonHolder &#123;</span><br><span class="line">      private static final Singleton INSTANCE &#x3D; new Singleton();</span><br><span class="line">   &#125;</span><br><span class="line">   private Singleton ()&#123;&#125;</span><br><span class="line">   public static final Singleton getInstance() &#123;</span><br><span class="line">      return SingletonHolder.INSTANCE;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="3-线程池"><a href="#3-线程池" class="headerlink" title="3. 线程池"></a>3. 线程池</h2><ul>
+<li><p><strong>1. 线程池介绍：</strong><br>  执行一个异步任务我们可能只是如下new Thread：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    new Thread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  jdk8之后可以用lambda</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    new Thread(() -&gt; System.out.println(Thread.currentThread().getName())).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  <strong>但是阿里规范不提尝使用Executors创建线程池</strong><br>  <img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200520095113867.png" alt=""></p>
+</li>
+<li><p><strong>2. 自定义线程池：</strong><br>  CPU密集型：操作内存处理的业务，一般线程数设置为：CPU核数 + 1 或者 CPU核数*2。核数为4的话，一般设置 5 或 8<br>  IO密集型：文件操作，网络操作，数据库操作，一般线程设置为：cpu核数 / (1-0.9)，核数为4的话，一般设置 40</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">自定义线程池构造方法</span><br><span class="line">ExecutorService pool1 &#x3D; new ThreadPoolExecutor(CPUCoreCount * 4, CPUCoreCount * 8, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue&lt;&gt;(), new ThreadPoolExecutor.DiscardPolicy());</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>3. 参数解释：</strong></p>
+<ul>
+<li>1、核心数<br>线程池维护线程的最少数量，在创建了线程池后，线程池中的线程数为0，当有任务来之后，就会创建一个线程去执行任务，当线程池中的线程数目达到corePoolSize后，就会把到达的任务放到缓存队列当中。</li>
+<li>2、最大数<br>线程池维护线程的最大数量，它表示在线程池中最多能创建多少个线程；这个参数是跟后面的阻塞队列联系紧密的；只有当阻塞队列满了，如果还有任务添加到线程池的话，会尝试new 一个Thread的进行救急处理，立马执行对应的runnable任务；如果继续添加任务到线程池，且线程池中的线程数已经达到了maximumPoolSize，那么线程就会就会执行reject操作。</li>
+<li>3、存活时间<br>线程池维护线程所允许的空闲时间，表示线程没有任务执行时最多保持多久时间会终止；默认情况下，只有当线程池中的线程数大于corePoolSize时，keepAliveTime才会起作用；即当线程池中的线程数大于corePoolSize时，如果一个线程空闲的时间达到keepAliveTime，则会终止，直到线程池中的线程数不超过corePoolSize。但是如果调用了allowCoreThreadTimeOut(boolean)方法并设置了参数为true，在线程池中的线程数不大于corePoolSize时，keepAliveTime参数也会起作用，直到线程池中的阻塞队列大小为0；（这部分通过查看ThreadPoolExecutor的源码分析–getTask()部分）</li>
+<li>4、时间单位<br>线程池维护线程所允许的空闲时间的单位，参数keepAliveTime的时间单位，有7种取值，在TimeUnit类中有7种静态属性（时间单位）。</li>
+<li>5、缓冲队列<br>线程池所使用的缓冲队列，用来存储等待执行的任务，这个参数的选择也很重要，会对线程池的运行过程产生重大影响，一般来说，这里的阻塞队列有以下几种选择<br>ArrayBlockingQueue;<br>LinkedBlockingQueue;<br>SynchronousQueue;<br>ArrayBlockingQueue和PriorityBlockingQueue使用较少，一般使用LinkedBlockingQueue和Synchronous。线程池的排队策略与BlockingQueue有关。</li>
+<li>6、决绝策略<br>ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常。（默认handle）<br>ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常。<br>ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）<br>ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务。</li>
+</ul>
+</li>
+<li><p><strong>4. 执行流程：</strong><br>当一个任务通过execute(Runnable)方法欲添加到线程池时：</p>
+<ul>
+<li>1、如果此时线程池中的数量小于corePoolSize，即使线程池中的线程都处于空闲状态，也要创建新的线程来处理被添加的任务。</li>
+<li>2、如果此时线程池中的数量等于 corePoolSize，但是缓冲队列 workQueue未满，那么任务被放入缓冲队列。</li>
+<li>3、如果此时线程池中的数量大于corePoolSize，缓冲队列workQueue满，并且线程池中的数量小于maximumPoolSize，建新的线程来处理被添加的任务。</li>
+<li>4、如果此时线程池中的数量大于corePoolSize，缓冲队列workQueue满，并且线程池中的数量等于maximumPoolSize，那么通过 handler所指定的策略来处理此任务。也就是：处理任务的优先级为：核心线程corePoolSize、任务队列workQueue、最大线程maximumPoolSize，如果三者都满了，则会使用handler处理被拒绝的任务。</li>
+<li>5、当线程池中的线程数量大于 corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样以来，线程池可以动态的调整池中的线程数</li>
+<li>参考：<br><a href="https://juejin.im/post/5b25b3d0f265da597d0a9803#heading-17" target="_blank" rel="noopener">https://juejin.im/post/5b25b3d0f265da597d0a9803#heading-17</a></li>
+</ul>
+</li>
+<li><p><strong>5. 自定义线程名称：</strong><br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200521095959581.png" alt=""><br>还是遭受到阿里爸爸的毒打，来吧继续，选中黄色提示按2次 ctrl + F1 先看看阿里爸爸的提示：<br><img src="http://hexo-1258128768.cos.ap-beijing.myqcloud.com/%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/20200521100703410.png" alt=""><br>可以按照这个写，也可以自定义线程工厂来拓展：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 命名线程工厂</span><br><span class="line">  static class NamedThreadFactory implements ThreadFactory &#123;</span><br><span class="line">      private static final AtomicInteger poolNumber &#x3D; new AtomicInteger(1);</span><br><span class="line">      private final ThreadGroup group;</span><br><span class="line">      private final AtomicInteger threadNumber &#x3D; new AtomicInteger(1);</span><br><span class="line">      private final String namePrefix;</span><br><span class="line"></span><br><span class="line">      NamedThreadFactory(String name) &#123;</span><br><span class="line"></span><br><span class="line">          SecurityManager s &#x3D; System.getSecurityManager();</span><br><span class="line">          group &#x3D; (s !&#x3D; null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();</span><br><span class="line">          if (null &#x3D;&#x3D; name || name.isEmpty()) &#123;</span><br><span class="line">              name &#x3D; &quot;pool&quot;;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          namePrefix &#x3D; name + &quot;-&quot; + poolNumber.getAndIncrement() + &quot;-thread-&quot;;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      public Thread newThread(Runnable r) &#123;</span><br><span class="line">          Thread t &#x3D; new Thread(group, r, namePrefix + threadNumber.getAndIncrement(), 0);</span><br><span class="line">          if (t.isDaemon())</span><br><span class="line">              t.setDaemon(false);</span><br><span class="line">          if (t.getPriority() !&#x3D; Thread.NORM_PRIORITY)</span><br><span class="line">              t.setPriority(Thread.NORM_PRIORITY);</span><br><span class="line">          return t;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">static ThreadPoolExecutor executorOne &#x3D; new ThreadPoolExecutor(5, 5, 1, TimeUnit.MINUTES,</span><br><span class="line">            new LinkedBlockingQueue&lt;&gt;(), new NamedThreadFactory(&quot;Test-Pool&quot;));</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="pangxue.vip/2020/05/08/aboutthread/" title="线程相关" target="_blank" rel="external">pangxue.vip/2020/05/08/aboutthread/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">px</span><small class="ml-1x">是老学学啊</small></a></h3>
+        <div>你要是讨厌他们，我们就不跟他们相处了，我们一起离开这里，找个像岛上那样的地方!</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/05/19/aboutmysql/" title="Mysql相关"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/05/07/aboutspringcloud/" title="springcloud相关"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ok3754792" target="_blank" title="Github" ><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- custom analytics part create by xiamo -->
+<script defer src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+<script defer>
+AV.init({
+  appId: '',
+  appKey: ''
+});
+
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+		var visitors= $('.leancloud_visitors');
+		query.greaterThanOrEqualTo("time", 0);		
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {				
+					return;
+				}
+				var data = results;
+				visitors.each(function(){
+					var url = $(this).attr('id').trim();					
+					for (var i = 0; i < data.length; i++) {
+						var object = data[i];
+						var content = object.get('time');
+						var _url = object.get('url')
+						if(url == _url){
+							$(this).text(content);
+						}
+					}
+				})
+				
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else {
+		showTime(Counter);
+	}
+}); 
+</script>
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '43b3a243acc7f6de2120',
+    clientSecret: 'c58ca172aedd5ef76c5a021ffb0b4c3ffeef69c9',
+    repo: 'comment',
+    owner: 'ok3754792',
+    admin: ['ok3754792'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
